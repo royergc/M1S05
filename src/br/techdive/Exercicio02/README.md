@@ -15,10 +15,10 @@ chamadas ao se instanciar um objeto de uma classe.
 Podemos ter mais de um construtor, permitindo que se instancie um objeto de formas diferentes. 
 Além disso, é possível que um construtor chame o outro construtor, para evitar repetição
 de código, que é justamente a proposta desse exercício.   
-Nesse caso, imaginei que mesmo que o construtor padrão seja chamado sem nenhum parâmetro,
-fosse necessário sempre inicializar o objeto com uma mensagem padrão.    
-Portanto, criei um segundo construtor que é chamado do construtor padrão e passa essa mensagem
-padrão.
+Nesse caso, imaginei um construtor padrão que fizesse algumas inicializações básicas no objeto
+e um segundo construtor que pudesse receber mais parâmetros, mas que também precisasse das inicalizações
+padrão do primeiro construtor.
+Portanto, dentro desse segundo construtor eu chamo o primeiro construtor.
 
 Criei a classe **Ex02Aquecendo** e o código ficou assim:
 
@@ -26,20 +26,27 @@ Criei a classe **Ex02Aquecendo** e o código ficou assim:
 package br.techdive.Exercicio02;
 
 public class Ex02Aquecendo {
-    private String construtorHello;
+    private int numInicializacao;
+    private String stringInicializacao;
+
+    private String stringAdicional;
 
     Ex02Aquecendo(){
-        this("Esse eh o 2o construtor, que recebe uma String como parametro");
+        numInicializacao = 0;
+        stringInicializacao = "Construtor padrao - Inicializacao basica";
+        System.out.println("numInicializacao iniciado com " + numInicializacao);
+        System.out.println(stringInicializacao);
     }
 
-    Ex02Aquecendo(String construtorHello) {
-        this.construtorHello = construtorHello;
-        System.out.println(construtorHello);
+    Ex02Aquecendo(String stringAdicional) {
+        this();
+        this.stringAdicional = stringAdicional;
+        System.out.println("Construtor secundário - " + stringAdicional);
     }
 
     public static void main(String[] args) {
-        System.out.println("Chamando construtor padrão");
-        Ex02Aquecendo aquecendo = new Ex02Aquecendo();
+        System.out.println("Chamando construtor adicional que chama construtor padrao");
+        Ex02Aquecendo ex02 = new Ex02Aquecendo("inicializacao adicional");
     }
 }
 ```
