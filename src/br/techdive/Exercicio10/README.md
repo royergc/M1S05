@@ -13,6 +13,7 @@ Crie uma classe com:
 O código está no meu [GitHub](https://github.com/royergc/M1S05), no pacote [Exercicio10](https://github.com/royergc/M1S05/tree/main/src/br/techdive/Exercicio10)
 
 ## Descrição
+Utilizei como complemento e referência para entendimento dos conceitos de classes aninhadas, internas, locais e anonimas esse [artigo da DevMedia](https://www.devmedia.com.br/classes-anonimas-e-aninhadas-em-java/31167)
 Criei a classe externa com o nome **EX10ClassesAninhadas**.
 Dentro dessa classe, criei uma classe interna **ClasseInterna**, com um método chamado **metodoInterno(String novaMsgInterna)**, uma classe interna estática **ClasseInternaEstatica**,   
 uma classe interna local **ClasseInternaLocal** que criei dentro do método **metodoClasseLocal()**.   
